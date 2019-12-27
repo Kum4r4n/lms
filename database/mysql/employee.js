@@ -72,7 +72,7 @@ exports.getemployee = function (obj, cb) {
     var queryString = "select * from employee where email ='" + obj.email + "'";
 
     db(queryString, null, obj, (err, result, obj) => {
-        if (err) return cb(true, err, obj);
+        if (err) return cb(true, result, obj);
 
         return cb(false, result, obj);
 
