@@ -17,7 +17,7 @@ exports.add = function (req, res, next) {
 
     db.getemployee(req.body, function (err, result, obj) {
         if (err) {
-            return res.status(400).json({status: false, message: "failed", result: "something went wrong"});
+            return res.status(400).json({status: false, message: "failed", result: result});
         } else if (result.length !== 0) {
             return res.status(400).json({
                 status: false,

@@ -54,7 +54,7 @@ exports.add = function (obj, cb) {
         " )";
 
     db(queryString, null, obj, (err, result , cbData) => {
-        if (err) return cb(true, result, obj);
+        if (err) return cb(true, err, obj);
         return cb(false, result, obj);
     });
 
