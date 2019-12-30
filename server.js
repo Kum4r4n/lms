@@ -1,18 +1,22 @@
-global.express = require('express')
-var https = require('https');
+// server.js
+// where your node app starts
+
+// init project
+var express = require('express');
 var app = express();
-var port = process.env.PORT || 8081;
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development'; // check the environment
+// we've started you off with Express, 
+// but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static('public'));
 
-global.config = require('./config/config'); //all the configurations
-global.appFun = require('./app/app_function');
-global.globalJs = require('./config/global'); // global variables
-global.mail = require('./app/email/sendMail');
+// http://expressjs.com/en/starter/basic-routing.html
+app.get('/', function(request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
 
-require('./middleware/express')(app); //
-
-app.listen(port, function() {
-	console.log('app running ', port)
+// listen for requests :)
+var listener = app.listen(process.env.PORT, function() {
+  console.log('Your app is listening on port ' + listener.address().port);
 });
