@@ -28,7 +28,7 @@
     "path": "^0.12.7",
     "request": "^2.79.0",
     "sendgrid": "^5.2.3",
-    "socket.io": "^2.0.3",
+    "socket.io": "^2.4.0",
     "uuid": "^3.3.2"
   },
   "author": "sivatharan",
